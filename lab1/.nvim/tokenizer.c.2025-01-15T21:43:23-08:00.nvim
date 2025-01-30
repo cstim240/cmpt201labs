@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+  // getline reads an entire line from stream, storing the address of the buffer
+  // containing the text into *lineptr. Returns the number of characters read,
+  // including delimiter.
+  char *line = NULL;
+  size_t n = 0;
+
+
+  printf("Please enter some text:\n");
+  return 0;
+}

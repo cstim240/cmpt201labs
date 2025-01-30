@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+int main(){
+//getline reads an entire line from stream, storing the address of the buffer containing the text
+//into *lineptr.
+  return 0;
+}

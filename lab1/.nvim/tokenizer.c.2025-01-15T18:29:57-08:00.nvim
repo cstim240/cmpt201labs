@@ -1,0 +1,4 @@
+#create a program that receives a user input, tokenizes it with the delimiter " "(space), and prints
+out each token one at a time on a new line. Use getline() for user input and strtok_r() for
+tokenization.
+#sample output: Please enter some text: Tomorrow is Friday. Tokens: Tomorrow\nis\nFriday.

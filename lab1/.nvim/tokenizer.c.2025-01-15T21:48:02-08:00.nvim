@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main() {
+  // getline reads an entire line from stream, storing the address of the buffer
+  // containing the text into *lineptr. Returns the number of characters read,
+  // including delimiter.
+  char *line = NULL;
+  size_t n = 0;
+
+  printf("Please enter some text:\n");
+
+  if (getline(&line, &n, stdin) != -1) {
+    printf("Tokens:\n");
+    char *ret = NULL;
+    char *saveptr = NULL;
+    char *str = line;
+    while ((ret = strtok_r(str, " ", &saveptr))) {
+      printf("%s\n", ret);
+      str = NULL;
+    }
+  } else {
+    printf("Failure reading line!\n);
+  }
+  return 0;
+}

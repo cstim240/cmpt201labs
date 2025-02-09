@@ -1,0 +1,28 @@
+#define _DEFAULT_SOURCE
+#define _ISOC99_SOURCE
+
+#include <stdint.h>
+#include <stdio.h>
+#include <unistd.h>
+
+#define HEAP_SIZE 256
+
+struct header {
+  uint64_t size;
+  struct header *next;
+};
+
+int main() {
+  // step 1: increase heap size by 256 bytes using sbrk()
+  if (sbrk(HEAP_SIZE) != -1) {
+    // success
+  } else {
+    // failure of sbrk()
+  }
+  // step 2: into this new space, create two equal size memory blocks: each
+  // block needs a header at the start of the block. The header structure is
+  // given step 2.5: initialize the header of each block correctly
+  //           initialize the data of the first block to 0's
+  //           initialize the data of the second vlock to 1's
+  return 0;
+}

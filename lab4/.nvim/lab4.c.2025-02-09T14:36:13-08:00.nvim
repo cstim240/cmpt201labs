@@ -1,0 +1,47 @@
+#define _DEFAULT_SOURCE
+#define _ISOC99_SOURCE
+
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#define HEAP_SIZE 256
+#define BLOCK_SIZE 128
+
+struct header {
+  uint64_t size;
+  struct header *next;
+};
+
+void handle_error(const char *msg) {
+  perror(msg);
+  exit(EXIT_FAILURE);
+}
+
+void initialize_block(struct header *block, uint64_t size, struct header *next,
+                      int fill_value) {
+  block->size = size;
+  block->next = next;
+  memset(block + 1, fill_value, size - sizeof(struct_header));
+}
+
+int main() {
+  // step 1: increase heap size by 256 bytes using sbrk()
+  char *heap_start = sbrk(0);
+  if (sbrk(HEAP_SIZE) == (void *)-1) {
+    // error occurred with sbrk
+    handle_error("sbrk");
+  }
+  // success of sbrk, heap_start now points to the newly allocated memory
+  // now we can move onto step 2: create two equal size mem blocks 256/2
+  struct header *first_block = (struct header *)heap_start;
+  struct header *second_block = (struct header *)(heap_start + BLOCK_SIZE);
+
+  //  step 2.5: initialize the header of each block correctly
+  //           initialize the data of the first block to 0's
+  //           initialize the data of the second vlock to 1's
+  first_block->size = free(heap_start);
+  return 0;
+}

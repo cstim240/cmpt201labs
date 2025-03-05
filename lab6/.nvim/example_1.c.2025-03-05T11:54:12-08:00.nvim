@@ -1,0 +1,14 @@
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ASSERT(expr) {
+if (!(expr)) {
+  fprinf(stderr, "Assertion failed: %s\n", #expr);
+  exit(1);
+}
+
+
+#define TEST(expr) {
+}

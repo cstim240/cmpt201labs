@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_INPUT 100
+
+typedef struct {
+  int line_number;
+  int value;
+} Input;
+
+typedef struct {
+  int line_number;
+  int doubled_value;
+} IntermediateInput;
+
+typedef struct {
+  int doubled_value;
+  int line_numbers[MAX_INPUT];
+  int count;
+} Output;
+
+void map(Input* input, IntermediateInput* intermediate_input);
+void groupByKey(IntermediateInput* input, Output *output, int *result_count);
+void reduce(Output* output);

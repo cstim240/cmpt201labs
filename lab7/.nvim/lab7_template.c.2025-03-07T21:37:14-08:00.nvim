@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_INPUT 100
+
+typedef struct {
+  int line_number;
+  int value;
+} Input;
+
+typedef struct {
+  int line_number;
+  int doubled_value;
+} IntermediateInput;
+
+
